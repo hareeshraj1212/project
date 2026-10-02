@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EduGenie — AI Learning Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">GEMINI-POWERED LEARNING</p>
+        <h1>EduGenie</h1>
+        <p class="subtitle">Ask, understand, practice, summarize, and build your learning path.</p>
+      </div>
+      <div class="status" id="status">Ready</div>
+    </header>
+
+    <section class="card controls">
+      <label for="task">What do you want to do?</label>
+      <select id="task">
+        <option value="qa">Ask a Question</option>
+        <option value="explain">Explain a Concept</option>
+        <option value="quiz">Generate Quiz</option>
+        <option value="summarize">Summarize</option>
+        <option value="learn">Learning Path</option>
+      </select>
+
+      <div id="learning-options" class="learning-options hidden">
+        <label for="level">Level</label>
+        <select id="level">
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+        <label for="hours">Hours/week</label>
+        <input id="hours" type="number" min="1" max="40" value="5">
+      </div>
+
+      <label for="input">Your input</label>
+      <textarea id="input" rows="9" placeholder="Example: Explain photosynthesis in simple terms..."></textarea>
+      <div class="actions">
+        <button id="submit">Generate</button>
+        <button id="clear" class="secondary">Clear</button>
+      </div>
+    </section>
+
+    <section class="card result-card">
+      <div class="result-header">
+        <h2>Result</h2>
+        <button id="copy" class="copy hidden">Copy</button>
+      </div>
+      <div id="result" class="result empty">Your AI-generated result will appear here.</div>
+    </section>
+
+    <footer>EduGenie • FastAPI + Gemini • Built for learning</footer>
+  </main>
+  <script src="{{ url_for('static', path='app.js') }}"></script>
+</body>
+</html>
